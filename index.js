@@ -77,7 +77,7 @@ for (let i=startDate.getTime(); i<=endDate.getTime(); i+=86400000) {
     newCalendarItem = {
         id,
         date: newDate,
-        notRecommended: (day===0 || day===6), // 0=sunday, 6=saturday
+        notRecommended: (day===0 || day===6) || (newDate.getTime()===new Date("2022-05-01T22:00:00.000Z").getTime()) , // 0=sunday, 6=saturday
         denied: false,
         trainingDay: false,
         descrition: '',
@@ -94,28 +94,7 @@ console.log(calendarMain)
 // calendarAdmin tábla
 // Az egyes felkészítési időszakokhoz kapcsolódó speciális napok az MKIK admin által rögzítve
 const calendarAdmin = [
-    {
-        // szombat, nem ajánlott nap
-        id: 1, 
-        date: new Date("2022-05-21T22:00:00.000Z"),
-        notRecommended: true,
-        denied: false,
-        trainingDay: false,
-        descrition: '',
-        trainingPeriodId: 1, //WS2022 felkészítési időszak - 2022
-        trainingId: null
-      },
-      {
-        // vasárnap, nem ajánlott nap
-        id: 2,
-        date: new Date("2022-05-21T22:00:00.000Z"),
-        notRecommended: true,
-        denied: false,
-        trainingDay: false,
-        descrition: '',
-        trainingPeriodId: 1,
-        trainingId: null
-      },    
+
       {
         // Szakértői tréning, tiltott nap
         id: 3,
@@ -127,28 +106,6 @@ const calendarAdmin = [
         trainingPeriodId: 1,
         trainingId: null
       },
-      {
-        // szombat, nem ajánlott nap
-        id: 4,
-        date: new Date("2022-05-28T22:00:00.000Z"),
-        notRecommended: true,
-        denied: false,
-        trainingDay: false,
-        descrition: '',
-        trainingPeriodId: 1,
-        trainingId: null
-    },
-    {
-        // vasárnap, nem ajánlott nap
-        id: 5,
-        date: new Date("2022-05-29T22:00:00.000Z"),
-        notRecommended: true,
-        denied: false,
-        trainingDay: false,
-        descrition: '',
-        trainingPeriodId: 1,
-        trainingId: null
-    },
     {
         // Teszt kitöltésének határideje, tájékoztatásként megadott nap
         id: 6,
@@ -157,28 +114,6 @@ const calendarAdmin = [
         denied: false,
         trainingDay: false,
         descrition: 'Teszt határidő',
-        trainingPeriodId: 1,
-        trainingId: null
-    },
-    {
-        // szombat, nem ajánlott nap
-        id: 7,
-        date: new Date("2022-06-04T22:00:00.000Z"),
-        notRecommended: false,
-        denied: false,
-        trainingDay: false,
-        descrition: 'Teszt határidő',
-        trainingPeriodId: 1,
-        trainingId: null
-    },
-    {
-        // vasármap, nem ajánlott nap, Pünkösd 
-        id: 7,
-        date: new Date("2022-06-05T22:00:00.000Z"),
-        notRecommended: true,
-        denied: false,
-        trainingDay: false,
-        descrition: 'Pünkösd',
         trainingPeriodId: 1,
         trainingId: null
     },
